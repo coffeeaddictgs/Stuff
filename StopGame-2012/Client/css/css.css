@@ -1,0 +1,256 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+    border: none;
+}
+
+img {border: none;}
+img.bordered {background: #FFF; padding: 5px; border: 1px solid #DDD;}
+img.left {margin-right: 1em;}
+img.right {margin-left: 1em;}
+
+small,.small {font-size: 0.8em;}
+big,.big {font-size: 1.2em;}
+
+html {
+	height: auto;
+	font: normal 11px Verdana;
+	color: #FFF;
+}
+body {
+    background: #004c16 url('../imagens/fundo.png') repeat-x;
+    height: 752px;
+}
+
+a:link { color:#808080; text-decoration: none; }
+a:visited { color:#808080; text-decoration: none; }
+a:active { color:#808080; text-decoration: none; }
+a:hover { color:#000; text-decoration: none; }
+
+td { padding: 5px; }
+
+input[type="submit"], input[type="button"], input[type="checkbox"], input[type="radio"] {
+    cursor: pointer;
+}
+input[type="submit"], input[type="password"], input[type="text"], input[type="button"], select, textarea, .salas{
+    border: 2px solid #FFF;
+    padding: 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.30) inset;
+    -moz-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.30) inset;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.30) inset;
+}
+input[type="button"]:hover{
+	border:2px solid #B9B9B9;
+	color:#000000;
+	margin:1px 0 0 1px;
+}
+.divs {
+	border: 2px solid #FFF;
+    padding: 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.30) inset;
+    -moz-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.30) inset;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.30) inset;
+}
+option {
+	border-bottom: 1px solid #CCC;
+	padding: 1px;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+	border-radius: 1px;
+}
+.divnomeuser{
+	margin:2px 0 2px 3px;
+	font-size: 11px;
+	width: 95%;
+	height: 14px;
+}
+.divnomeuserpronto{
+	margin:2px 0 2px 3px;
+	font-size: 11px;
+	width: 95%;
+	height: 14px;
+	background: #42AA61;
+}
+.quadradonomeuser{
+	float:left;
+	width: 8px;
+	height: 8px;
+	margin:3px 2px 0 5px;
+	background: #008000;
+}
+.divmsgs{
+	margin:0 0 0 3px;
+	float:left;
+	clear:both;
+}
+.divmsgsnome{
+	margin:0 0 0 3px;
+	color:#555555;
+	font-weight: bold;
+	float:left;
+	clear:both;
+}
+.divmsgsnomesys{
+	font-size: 12px;
+	margin:0 0 0 3px;
+	color:#000;
+	font-weight: bold;
+	float:left;
+	clear:both;
+}
+.letralateral{
+	width: 100px;
+	height: 100px;
+	margin: 16px 0 0 16px;
+	font-size: 115px;
+	text-align:center;
+	float:left;
+	background: #008000;
+    padding: 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.40) inset;
+    -moz-box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.40) inset;
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.40) inset;
+}
+.linhadiv{
+	margin:5px 0 0 15px;
+	width:1px;
+	height: 230px;
+	background:#000;
+	float:left;
+}
+.infosbaixoletra{
+	width:120px;
+	color:#000;
+	margin:0 0 0 10px;
+	height: 120px;
+	clear:both;
+	text-align: center;
+}
+.btnpronto{
+	width: 125px;
+	height: 33px;
+	background: url('../imagens/pronto.png');
+	margin:10px 0 0 0;
+	cursor: pointer;
+	display:none;
+}
+.btnpronto:hover{
+	background: url('../imagens/pronto_h.png');
+}
+.btnnaopronto{
+	width: 125px;
+	height: 33px;
+	background: url('../imagens/naopronto.png');
+	margin:10px 0 0 0;
+	cursor: pointer;
+}
+.btnnaopronto:hover{
+	background: url('../imagens/naopronto_h.png');
+}
+.btnstop{
+	width: 125px;
+	height: 33px;
+	background: url('../imagens/stopbt.png');
+	margin:10px 0 0 0;
+	cursor: pointer;
+	display:none;
+}
+.btnstop:hover{
+	background: url('../imagens/stopbt_h.png');
+}
+.conteudxiniciado{
+	color:#000;
+	margin:0 0 0 10px;
+	float:left;
+}
+.iniciadoipt{
+	color:#000;
+	font-size: 13px;
+	margin:0 0 0 3px;
+}
+.float{
+	float:left;
+}
+.floatresp{
+	float:left;
+	margin:0 5px 0 0;
+}
+.floatc{
+	float:left;
+	clear:both;
+}
+.inputiniciado{
+	width:120px;
+}
+.seletorbom{
+	color:#333333;
+	background: #42AA62;
+	width: 125px;
+}
+.seletormal{
+	color:#333333;
+	background: #CC332D;
+	width: 125px;
+}
+/* ----------------------------------------
+   Topo
+------------------------------------------- */
+
+.central {
+	margin: auto;
+	width: 990px;
+	margin-bottom: 5px;
+    background: url('../imagens/conteudo.png');
+    height: 611px;
+}
+
+.conteudo {
+    margin: 10px 115px 0 150px;
+}
+
+.logo {
+    background: url(../imagens/logo.png) no-repeat;
+    width: 458px;
+    height: 152px;
+	margin: auto;
+	margin-left: 400px;
+}
+
+.salas_opcoes {
+    border: 1px solid #004000;
+    padding: 4px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 2px;
+    color: #008000;
+    cursor: pointer;
+}
+
+.claro {
+    background:#ededed;
+}
+
+.escuro {
+    background:#DFFFDF;
+}
+.divlado{
+	float:left;
+	margin:10px 0 0 5px;
+}
+.divlado2{
+	float:left;
+	clear: both;
+	font-weight: bold;
+	margin:10px 0 0 0;
+}

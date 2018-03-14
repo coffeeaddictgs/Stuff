@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="ahcor games, ahcor, games web, web based, jogos online, digimon, digimon war, insane, race, insaneracer, ddtank, pets, mu, mu online">
+    <meta name="title" content="Ahcor Games - Desenvolvimento de jogos">
+    <meta name="description" content="Desenvolvimento de jogos de navegador!">
+    <meta name="language" content="pt-br" />
+
+    <link rel="canonical" href="http://ahcorgames.com/" />
+    <link href="imagens/favicon.ico" rel="icon" type="image/x-icon"/>
+    <title>Adedonha</title>
+	<script type="text/javascript" src="../libs/Jquery/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="../funcoesJs/funcoes.js"></script>
+    <script src="../funcoesJs/jquery.reveal.js" type="text/javascript"></script>
+    <script src="http://localhost:8090/socket.io/socket.io.js" ></script>
+    <script src="../funcoesJs/cliente.js" type="text/javascript"></script>
+    <script src="../funcoesJs/away.js" type="text/javascript"></script>
+    <link href="../css/css.css" rel="stylesheet" type="text/css" media="all"><br />
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+		<div id="bbody" style="opacity:0.65;-moz-opacity: 0.65;filter: alpha(opacity=65);display:none;"></div>
+     <div>
+     	<div id="modal">
+		<div id="heading">
+		Alerta!
+		</div>
+
+		<div id="content" style="text-align: center;">
+			<br>
+		<div id="msgcontent"></div><br>
+		<div class="fecharerror" id="msgfechabt" onclick="fechaError();"><a href="#">FECHAR ALERTA</a></div>
+		</div>
+		</div>
+          <div class="central">
+              <div class="logo"></div>
+              <div class="conteudo">
+                  <div id="inicio">
+                      <div class="divs" style="background: #fff;width: 700px;height: 240px">
+                      	<div style="float:left;">
+                      	<div class="letralateral">
+                      		<div id="letrasel" style="margin:-23px 0 0 0;">?</div>
+                      	</div>
+                      	<div class="infosbaixoletra">
+						<span style="font-weight: bold;">Dono da sala:</span>
+						<div  id="salanomedono"><img src="../imagens/ajax-loader.gif"/></div>
+						<span style="font-weight: bold;">Rodada:</span>
+						<div id="salarodadas"><img src="../imagens/ajax-loader.gif"/></div>
+						<div id="prontobt" class="btnpronto"></div>
+						<div id="stopbt" class="btnstop"></div>
+						<div id="tempodiv" style="display:none;margin:5px 0 0 0;">
+						<span style="font-weight: bold;"><div id="titulotempo">Tempo para stop</div></span>
+						<div id="countertime" style="font-size: 30px;"><img src="../imagens/ajax-loader.gif"/></div>
+						</div>
+						<div id="avidiv" style="display:none;margin:5px 0 0 0;">
+						<span style="font-weight: bold;">Aguardando os outros jogadores avaliarem...</span>
+						</div>
+						</div>
+                      	</div>
+                      	<div class="linhadiv"></div>
+                      <div class="conteudxiniciado" id="conteudoiniciado">
+                      	
+					</div>
+					<div id="btnconfirma" style="display: none;width:400px;float:left;"><input type="button" value="Confirmar" style="background:#9B9B9B;margin:5px 0 0 9px;"/></div>
+					<div id="esperaplayer" style="display: none;"><div style="margin:10px 0 0 400px;"><img src="../imagens/ajax-loader.gif"/></div><div style="font-size: 13px;color:#000;font-weight: bold;margin:5px 0 0 250px;">Aguarde os outros jogadores corrigirem!</div></div>
+                      </div>
+                      </div>
+                      <div id="nomeusers" class="divs" style="background: #fff;color:#000;width: 150px;height: 115px;margin:6px 0 0 0;float:left;">
+                      	<div style="text-align: center;"><img src="../imagens/ajax-loader.gif"/></div>
+                      </div>
+                      <div class="divs" id="divmsgs" style="background: #fff;color:#000;width: 413px;height: 80px;margin:6px 0 0 6px;float:left;overflow:auto ;overflow-x: hidden;"></div>
+                      <div style="margin:6px 0 0 600px;position: absolute;">
+					<img src="../imagens/denunciar.png" width="112" style="cursor: pointer;float:left;" onMouseOver="this.src='../imagens/denunciar_h.png'"; onMouseOut="this.src='../imagens/denunciar.png';" id="denunciarx">
+					<img src="../imagens/twitar.png" width="112" style="cursor: pointer;float:left;clear:both;margin:10px 0 0 0;" onMouseOver="this.src='../imagens/twitar_h.png'"; onMouseOut="this.src='../imagens/twitar.png';" id="twitarx">
+					<img src="../imagens/sair.png" width="112" style="cursor: pointer;float:left;clear:both;margin:10px 0 0 0;" onMouseOver="this.src='../imagens/sair_h.png'"; onMouseOut="this.src='../imagens/sair.png';" id="sairx">
+					  </div>
+                      <input type="text" id="escrevemsg" style="width: 413px;margin:6px 0 0 6px;" />
+                      <div style="clear: both;"></div>
+                  </div>
+              </div>
+          </div>
+     </div>
+</body>
+</html>

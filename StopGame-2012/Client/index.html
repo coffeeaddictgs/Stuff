@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="ahcor games, ahcor, games web, web based, jogos online, digimon, digimon war, insane, race, insaneracer, ddtank, pets, mu, mu online">
+    <meta name="title" content="Ahcor Games - Desenvolvimento de jogos">
+    <meta name="description" content="Desenvolvimento de jogos de navegador!">
+    <meta name="language" content="pt-br" />
+
+    <link rel="canonical" href="http://ahcorgames.com/" />
+    <link href="imagens/favicon.ico" rel="icon" type="image/x-icon"/>
+    <title>Adedonha</title>
+	<script type="text/javascript" src="libs/Jquery/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="funcoesJs/funcoes.js"></script>
+    <script src="funcoesJs/jquery.reveal.js" type="text/javascript"></script>
+    <script src="http://localhost:8090/socket.io/socket.io.js" ></script>
+    <script src="funcoesJs/cliente.js" type="text/javascript"></script>
+    <script src="funcoesJs/away.js" type="text/javascript"></script>
+    <link href="css/css.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+    	var temas = 	["Nome",
+               			"Cor",
+               			"Fruta",
+               			"Comida",
+               			"Esporte",
+               			"CEP",
+		                "Música",
+		                "Banda",
+		                "Animal",
+		                "Marca",
+		                "Novela",
+		                "Série de TV",
+		                "Parte corpo humano",
+		                "Minha sogra é",
+		                "Profissão",
+		                "Time",
+		                "Filme",
+		                "Ator",
+		                "Atriz",
+		                "Cantor",
+		                "Cantora",
+		                "Objeto",
+		                "Jogo",
+		                "Filme"];
+		var letras = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+		var letrasd = ["H","K","Q","W","X","Y","Z"];
+    </script>
+</head>
+<body>
+	<input type="hidden" id="salaselecionada" value="none" />
+	<div id="bbody" style="opacity:0.65;-moz-opacity: 0.65;filter: alpha(opacity=65);display:none;"></div>
+     <div>
+     	<div id="modal">
+		<div id="heading">
+		Alerta!
+		</div>
+
+		<div id="content" style="text-align: center;">
+			<br>
+		<div id="msgcontent"></div><br>
+		<div class="fecharerror" id="msgfechabt" onclick="fechaError();"><a href="#">FECHAR ALERTA</a></div>
+		</div>
+		</div>
+          <div class="central">
+              <div class="logo"></div>
+              <div class="conteudo">
+                  <div id="inicio">
+                      <div id="esquerdo" style="float: left; width: 50%;">
+                          <div id="descricao">
+                              Descrição
+                          </div>
+                          <div id="detalhes_sala" style="display: none;">
+                              <div class="divlado2" style="font-size: 27px;clear:none;">Sala: </div><div class="divlado" style="clear:none;font-size: 27px;" id="detnome"></div>
+                              <div class="divlado2">Controlador da sala: </div><div class="divlado" id="detdono"></div>
+                              <div class="divlado2">Temas: </div><div class="divlado" id="dettemas"></div>
+                              <div class="divlado2">Letras: </div><div class="divlado" id="detletras"></div>
+                              <div class="divlado2">Letras já sorteadas: </div><div class="divlado" id="detletrassorteadas"></div>
+                              <div class="divlado2">Tempo para STOP: </div><div class="divlado" id="dettempostop"></div>
+                              <div class="divlado2">Tempo para avaliar: </div><div class="divlado" id="dettempoavaliar"></div>
+                              <div class="divlado2">Tempo intervalo: </div><div class="divlado" id="dettempointervalo"></div>
+                              <div class="divlado2">Limite de jogadores: </div><div class="divlado" id="detlimite"></div>
+                              <div class="divlado2">Rodadas: </div><div class="divlado" id="detrodadas"></div>
+                              <div class="divlado2">Rodada atual: </div><div class="divlado" id="detrodadaatual"></div>
+                              <div class="divlado2">Jogadores: </div><div class="divlado" id="detjogadores"></div>
+                              <div class="divlado2">Senha: </div><div class="divlado" id="detsenha">Não</div>
+                          </div>
+                          <div id="nova_sala" style="display: none; height: 385px; overflow: auto;">
+                              <table width="100%">
+                              <tr>
+                                <td width="45%">Seu nome</td>
+                                <td><input type="text" name="nome" id="nome" value="" style="width: 175px;"></td>
+                              </tr>
+                              <tr>
+                                <td>Nome da sala</td>
+                                <td><input type="text" name="nome_sala" id="nome_sala" value="" style="width: 175px;"></td>
+                              </tr>
+                              <tr>
+                                <td>Limite de jogadores</td>
+                                <td><select name="limite_jogadores" id="limite_jogadores" style="width: 185px;"><script>for(var i=14;i>=4;--i){
+                                	if(i==10){
+                                	document.getElementById('limite_jogadores').innerHTML += "<option value='"+i+"' selected>"+i+"</option>";	
+                                	}else{document.getElementById('limite_jogadores').innerHTML += "<option value='"+i+"'>"+i+"</option>";}
+                                	
+                                	}
+                                	</script></select>
+                                	</td>
+                              </tr>
+                              <tr>
+                                <td>Número de rodadas</td>
+                                <td><select name="limite_rodadas" id="numero_rodadas" style="width: 185px;"><script>for(var i=18;i>=4;--i){
+                                	if(i==12){
+                                	document.getElementById('numero_rodadas').innerHTML += "<option value='"+i+"' selected>"+i+"</option>";	
+                                	}else{document.getElementById('numero_rodadas').innerHTML += "<option value='"+i+"'>"+i+"</option>";}
+                                	
+                                	}
+                                	</script></select></td>
+                              </tr>
+                              <tr>
+                                <td valign="top">Temas</td>
+                                <td>
+                                	<label id='temas' style="margin: 3px;">
+                                	<script>
+                                		for(var i=0;i<temas.length;i++){
+                                			if(i <= 8){
+                                				document.getElementById('temas').innerHTML += temas[i]+'<input type="checkbox" value="'+temas[i]+'" checked="checked">';
+                                			}else{
+                                				document.getElementById('temas').innerHTML += temas[i]+'<input type="checkbox" value="'+temas[i]+'">';
+                                			}
+                                			
+                                		}
+                                	</script>
+                                	</label>
+                                    <br>
+                                    Outros (separe por vírgula): <input type="text" name="temas_outros" id="temas_outros" value="" style="width: 175px;">
+                                </td>
+                              </tr>
+                              <tr>
+                                <td valign="top">Letras</td>
+                                <td>
+                                    <label id='letras' style="margin: 3px;">
+                                	<script>
+                                		for(var x=0;x<letras.length;x++){
+                                			if(!inArray(letras[x],letrasd)){
+                                				document.getElementById('letras').innerHTML += letras[x]+'<input type="checkbox" value="'+letras[x]+'" checked="checked">';
+                                			}else{
+                                				document.getElementById('letras').innerHTML += letras[x]+'<input type="checkbox" value="'+letras[x]+'">';
+                                			}
+                                			
+                                		}
+                                	</script>
+                                	</label>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Tempo para STOP</td>
+                                <td><input type="text" name="tempo_stop" id="tempo_stop" value="20" style="width: 175px;"></td>
+                              </tr>
+                              <tr>
+                                <td>Tempo para avaliar <span title="Coloque 0 para tempo infinito">(?</span>)</td>
+                                <td><input type="text" name="tempo_avaliar" id="tempo_avaliar" value="25" style="width: 175px;"></td>
+                              </tr>
+                              <tr>
+                                <td>Tempo de intervalo <span title="Coloque 0 para tempo infinito">(?)</span></td>
+                                <td><input type="text" name="tempo_intervalo" id="tempo_intervalo" value="60" style="width: 175px;"></td>
+                              </tr>
+                              <tr>
+                                <td valign="top">Senha</td>
+                                <td><label><input type="radio" name="senha" value="Sim"> Sim</label> <label><input type="radio" name="senha" value="Nï¿½o"> Não</label> <input type="password" name="senha_sala" id="senha_sala" value="" style="display: none;"></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td><img id="criarnd" src="imagens/bota_criar.png" width="112" style="cursor: pointer;" onMouseOver="this.src='imagens/bota_criar2.png'"; onMouseOut="this.src='imagens/bota_criar.png';" onclick="javascript: mostraMenus('jogar');"></td>
+                              </tr>
+                              </table>
+                          </div>
+                          <div id="regras" style="display: none;">
+                              regras
+                          </div>
+                      </div>
+                      <div id="direito" style="float: left;">
+                          <table width="100%">
+                          <tr>
+                            <td>N O M E</td>
+                            <td><input type="text" name="usuario" id="usuario" value="" style="width: 260px;"></td>
+                          </tr>
+                          <tr>
+                            <td>B U S C A</td>
+                            <td>
+                                <select id="filtro" style="width: 270px;">
+                                       <option value="1">Ver salas mais recentes</option>
+                                       <option value="2">Ver salas mais antigas</option>
+                                       <option value="3">Ver salas em ordem alfabética</option>
+                                       <option value="4">Ver salas em ordem alfabética inversa</option>
+                                       <option value="5">Ver salas não cheias</option>
+                                       <option value="6">Ver salas sem senhas</option>
+                                       <option value="7">Ver salas com senhas</option>
+                                </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">S A L A S</td>
+                            <td>
+                                <div class="salas" id="salas" style="width: 260px; height: 210px; overflow: auto; background: #FFF;">    
+                                    <div style="text-align: center;"><img src="../imagens/ajax-loader.gif"/></div>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>S E N H A</td>
+                            <td><div id="sem_senha" style="float: left; width: 150px;"><input disabled="disabled" type="text" name="usuario" id="usuario" value="Sala sem senha!" style="width: 150px;margin:-8px 0 0 0;"></div></div><div style="float:right;"><div id="contadoronline" style="font-size: 25px;font-weight: bold;float:left;margin:-10px 0 0 15px;">0</div><div style="float:left;margin:3px 0 0 3px;">jogando</div></div></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                               <img id="jogarbt" src="imagens/botao_jogar.png" width="112" style="cursor: pointer;margin:-5px 0 0 0;" onMouseOver="this.src='imagens/botao_jogar2.png'"; onMouseOut="this.src='imagens/botao_jogar.png';" onclick="javascript: mostraMenus('jogar');">
+                               <img src="imagens/bota_criar_sala.png" width="112" style="cursor: pointer;margin:-5px 0 0 0;" onMouseOver="this.src='imagens/bota_criar_sala2.png'"; onMouseOut="this.src='imagens/bota_criar_sala.png';" onclick="javascript: mostraMenus('criar_sala');">
+                               <img src="imagens/bota_regras.png" width="112" style="cursor: pointer;margin:-5px 0 0 0;" onMouseOver="this.src='imagens/bota_regras2.png'"; onMouseOut="this.src='imagens/bota_regras.png';" onclick="javascript: mostraMenus('regras');">
+                            </td>
+                          </tr>
+                          </table>
+                      </div>
+                      <div style="clear: both;"></div>
+                      <div style="text-align: center;margin:10px 0 0 0;clear:both;position:relative">© Copyright 2013 - Desenvolvido por <a style="color:#BABABA;font-weight:bold;" href="http://www.ahcorgames.com" target="_blank">Ahcor Games</a></div>
+                      <div style="text-align: center;"><a style="color:#BABABA;font-weight:bold;clear:both" href="http://www.ahcorgames.com" target="_blank">www.ahcorgames.com</a> <a style="color:#BABABA;font-weight:bold;" href="http://ahcorgames.com/?ahcor=contato" target="_blank">Contato</a>|<a style="color:#BABABA;font-weight:bold;" href="http://ahcorgames.com/?ahcor=nossos_jogos" target="_blank">Jogos</a></div>
+                  </div>
+              </div>
+          </div>
+     </div>
+</body>
+</html>
