@@ -1,7 +1,5 @@
 #pragma once
 
-// :) Beijinhos liv!
-
 #include <iostream>
 #include <fstream>
 #include <bitset>
